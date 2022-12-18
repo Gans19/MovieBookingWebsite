@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #242323;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+.movie-cantainer {
+  margin: 20px 0;
+}
+select {
+  background-color: #fff;
+  border: 0;
+  border-radius: 15px;
+  font-size: 16px;
+  padding: 5px 15px 5px 15px;
+  -moz-appearance: none;
+  appearance: none;
+  margin-left: 10px;
+}
+.container {
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+.seat {
+  height: 12px;
+  width: 15px;
+  background-color: #fff;
+  border-top-right-radius: 10px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+}
+.seat.selected {
+  background-color: aquamarine;
+}
+.seat.sold {
+  background-color: dimgray;
+}
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+.seat:nth-last-of-type() {
+  margin-left: 18px;
+}
+.seat:not(.sold):hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.showcase .seat:not(.sold):hover {
+  cursor: default;
+  transform: scale(1);
+}
+.showcase {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: #dc3535;
+  padding: 5px 10px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.showcase li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+.showcase li small {
+  margin-left: 2px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screen {
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  margin: 15px 0;
+  transform: rotateX(-49deg);
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+}
+p.text {
+  margin: 15px 0;
+}
+p.text span {
+  color: #dc3535;
+}
+.btn {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  cursor: pointer;
+  color: #fff;
+}
+button {
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  display: flex;
+  border-radius: 15px;
+  border: 1px solid #dc3535;
+  background-color: #dc3535;
+  color: #fff;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: transform 0.6s ease-in-out;
+}

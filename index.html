@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviePlex-Ticket Booking Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- sign up container -->
+
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="index.html">
+          <h2>Create Account</h2>
+          <div class="social-container">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+          <span>Or Use Your Email For Registration</span>
+          <input id="text" type="text" placeholder="Name" />
+          <input id="email" type="email" placeholder="Email" />
+          <input id="pass" type="password" placeholder="Password" />
+          <button type="submit" onclick="addData()">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- sign in container -->
+
+      <div class="form-container sign-in-container">
+        <form action="/main.html" method="dialog">
+          <h2>Sign In</h2>
+          <div class="social-container">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+          <span>Or Use Your Account</span>
+
+          <input id="email2" type="email" placeholder="Email" />
+          <input id="pass2" type="password" placeholder="Password" />
+          <button type="submit" onclick="checkData()">Sign in</button>
+        </form>
+      </div>
+
+      <!-- Overlay container -->
+
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome To MoviePlex</h1>
+            <p>
+              “Keep thinking you know everything. Some people are so far behind
+              in a race that they actually think they’re leading.”
+            </p>
+            <button class="btn" id="sign-in">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-Right">
+            <h1>MoviePlex!!!</h1>
+            <p>
+              Online Movie Tickets Booking, Theatre Tickets Booking, Plays and
+              Sports Ticket Booking at one place MoviePlex.com Book Seats Of
+              Your Choice Online Now.
+            </p>
+            <button class="btn" id="sign-up">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function addData() {
+        var email = document.getElementById("email").value;
+        var pwd = document.getElementById("pass").value;
+
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userPwd", pwd);
+      }
+
+      function checkData() {
+        var enterEmail = document.getElementById("email2").value;
+        var enterPwd = document.getElementById("pass2").value;
+
+        var getEmail = localStorage.getItem("userEmail");
+        var getPwd = localStorage.getItem("userPwd");
+
+        if (getEmail == enterEmail) {
+          if (getPwd == enterPwd) {
+            document.location.href = "main.html";
+            return true;
+          } else {
+            alert("Wrong Password");
+            return false;
+          }
+        } else {
+          alert("Invalid Username/Password");
+          return false;
+        }
+      }
+
+      const signUp = document.getElementById("sign-up");
+      const signIn = document.getElementById("sign-in");
+      const container = document.getElementById("container");
+
+      signUp.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+      signIn.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+    </script>
+  </body>
+</html>
